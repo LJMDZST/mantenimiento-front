@@ -1,7 +1,11 @@
 import React from 'react'
+import {  useSelector } from 'react-redux';
 import { LineaHistorial } from './LineaHistorial'
 
 export const Historial = () => {
+
+    const {historialReducer} = useSelector(state => state);
+
     return (
         <div className="container mt-5">
         <div className="row">
@@ -16,15 +20,21 @@ export const Historial = () => {
             <table className="table">
                 <thead>
                   <tr>
-                    <th>Fecha Inicio</th>
-                    <th>Equipo</th>
-                    <th>Tarea a realizar</th>
-                    <th>Estado</th>
-                    <th>Acciones</th>
+                    <th>Fecha Inicio</th><th>Equipo</th><th>Tarea a realizar</th><th>Estado</th><th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                    <LineaHistorial />
+                    {
+                      historialReducer.map( lineaHistorial => 
+                        <LineaHistorial 
+                          fecIni = {lineaHistorial.fecIni}
+                          id_equipo = {lineaHistorial.id_equipo}
+                          tarea = {lineaHistorial.tarea}
+                          id_estado = {lineaHistorial.id_estado}
+                        />  
+                      )
+                    }
+                    
                 </tbody>
               </table>
         </div>

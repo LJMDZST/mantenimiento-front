@@ -3,10 +3,9 @@ import { types } from "../Types/Types";
 
 
 const initialState = {
-    cargandoHistorial : false,
     cargandoDetalle : false,
+    guardandoDatos : false,
     msgError : null,
-    msgModal : null,
 }
 export const uiReducer = ( state = initialState, action)=>{
 
@@ -31,8 +30,8 @@ export const uiReducer = ( state = initialState, action)=>{
         case types.GuardarCambios:
         return {
             ...state,
+            guardandoDatos : action.payload.guardandoDatos,
             msgError : action.payload.msgError,
-            msgModal : action.payload.msgModal
         } 
             
         default:

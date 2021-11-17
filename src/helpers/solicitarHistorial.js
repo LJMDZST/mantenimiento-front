@@ -1,9 +1,10 @@
 
-const {DIR,PUERTO} = process.env;
+
 
 export const solicitarHistorial = async()=>{
     try {
-        const resp = await fetch(`http://${DIR}:${PUERTO}/mant`);
+        const {REACT_APP_API_URL} = process.env;
+        const resp = await fetch(`${REACT_APP_API_URL}/mantenimiento/ver/mant`);
 
         const data = await resp.json();
 
@@ -14,6 +15,7 @@ export const solicitarHistorial = async()=>{
         } ;
         
     } catch (error) {
+        console.log(error);
         return {
             ok : false,
             status : 500,
