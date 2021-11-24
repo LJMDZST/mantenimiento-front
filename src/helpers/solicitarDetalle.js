@@ -6,11 +6,11 @@ export const solicitarDetalle = async(idDet = null)=>{
         const resp = await fetch(`${REACT_APP_API_URL}/mantenimiento/ver/mant/${idDet}`);
 
         const data = await resp.json();
-
+        
         return {
             ok : resp.statusText,
             status : resp.status,
-            data
+            data : data.data
         } ;
         
     } catch (error) {

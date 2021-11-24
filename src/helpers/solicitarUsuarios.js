@@ -9,7 +9,7 @@ export const solicitarUsuarios = async()=>{
         return {
             ok : resp.statusText,
             status : resp.status,
-            data
+            data : data.data
         } ;
         
     } catch (error) {

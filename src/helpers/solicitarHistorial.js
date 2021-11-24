@@ -11,7 +11,7 @@ export const solicitarHistorial = async()=>{
         return {
             ok : resp.statusText,
             status : resp.status,
-            data
+            data : data
         } ;
         
     } catch (error) {

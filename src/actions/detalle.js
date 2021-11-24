@@ -8,13 +8,14 @@ export const startCargarDetalle = (idDet = null)=>{
     return async(dispatch)=>{
         try {
             let resp = await solicitarEquipos();
-            dispatch( cargarEquipos(resp.data) );
+            
+            dispatch( cargarEquipos( resp.data ) );
 
             resp = await solicitarUsuarios();
-            dispatch( cargarUsuarios( resp.data ));
-            
+            dispatch( cargarUsuarios( resp.data ) );
+
             resp = await solicitarDetalle(idDet);
-            dispatch( selecDetalle(resp.data));
+            dispatch( selecDetalle( resp.data[0] ) );
 
         } catch (error) {
             console.log(error);

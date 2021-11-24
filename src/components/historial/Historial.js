@@ -25,8 +25,10 @@ export const Historial = () => {
                 </thead>
                 <tbody>
                     {
-                      historialReducer.map( lineaHistorial => 
+                      historialReducer.map( (lineaHistorial,i) => 
                         <LineaHistorial 
+                          key={i}
+                          idDetalle = {lineaHistorial.id_mantenimiento}
                           fecIni = {lineaHistorial.fecIni}
                           id_equipo = {lineaHistorial.id_equipo}
                           tarea = {lineaHistorial.tarea}

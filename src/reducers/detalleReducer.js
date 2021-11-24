@@ -22,7 +22,7 @@ export const detalleReducer = ( state = initialState, action = {type : null , pa
             return {
                 ...state,
                 detalle: {
-                    ...detalle,
+                    ...state.detalle,
                     ...action.payload
                 }
               
