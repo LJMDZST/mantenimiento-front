@@ -1,11 +1,13 @@
 
-export const solicitarEquipos = async()=>{
+
+export const solicitarTareas = async( idDet  = null )=>{
     try {
         const {REACT_APP_API_URL} = process.env;
-        const resp = await fetch(`${REACT_APP_API_URL}/mantenimiento/ver/equipos`);
+
+        const resp = await fetch(`${REACT_APP_API_URL}/mantenimiento/ver/tareas/${idDet}`);
 
         const data = await resp.json();
-
+        
         return {
             ok : data.ok,
             status : resp.status,

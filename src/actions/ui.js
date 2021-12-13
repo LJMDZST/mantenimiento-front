@@ -1,32 +1,20 @@
 import { types } from "../Types/Types"
 
 
-export const clickAgregar = ( cargandoDetalle = false, msgError = '', msgModal = '' )=>({
-    type : types.clickAgregar,
-    payload : {
-        cargandoDetalle,
-        msgError,
-        msgModal
-    }
+export const iniciarCargarDetalle = ()=>({
+    type: types.iniciarCarga
 })
-export const clickCancelar = ( msgError = '')=>({
-    type : types.clickCancelar,
-    payload : {
-        msgError
-    }
+
+export const IniciarguardarCambios = ( )=>({
+    type : types.iniciarGuardarCambios
 })
-export const clickEditar = ( cargandoDetalle = false, msgError = '' )=>({
-    type : types.clickEditar,
-    payload : {
-        cargandoDetalle,
-        msgError,
-        msgModal
-    }
+
+export const FinalizarCargarDetalle = (msgError = '')=>({
+    type: types.finalizarCarga,
+    payload : msgError
 })
-export const guardarCambios = (guardandoDatos = false, msgError = '')=>({
-    type : types.guardarCambios,
-    payload : {
-        guardandoDatos,
-        msgError
-    }
+
+export const finalizarGuardarCambios = (msgError = '')=>({
+    type: types.finalizarGuardarCambios,
+    payload : msgError
 })

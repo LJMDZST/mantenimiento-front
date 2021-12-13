@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
-import { Provider, useDispatch } from 'react-redux'
-import { startCargarHistorial } from './actions/historial'
+import React from 'react'
+import { Provider } from 'react-redux'
 import { AppRouter } from './routers/AppRouter'
 import { store } from './store/store'
 

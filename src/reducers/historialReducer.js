@@ -1,14 +1,18 @@
 import { types } from "../Types/Types";
 
-const initialState = [];
+const initialState = {
+    listado : []
+};
 
 export const  historialReducer = ( state = initialState, action = {type : null , payload : null})=>{
     switch (action.type) {
         case types.cargarHistorial : 
-            return [
+            return {
                 ...state,
-                ...action.payload
-            ]
+                listado : [
+                    ...action.payload
+                ]
+            }
               
             
             

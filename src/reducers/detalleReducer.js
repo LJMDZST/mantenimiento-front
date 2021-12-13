@@ -5,14 +5,13 @@ const initialState = {
         id_mantenimiento : null,
         id_equipo : null ,
         id_usuario : null ,
+        id_tecnico: null,
         fecIni : null ,
         fecFin : null ,
         tarea : null ,
         observ : null ,
         id_estado : null
-    },
-    equipos : [],
-    usuarios : []
+    }
     
 }
 
@@ -22,31 +21,21 @@ export const detalleReducer = ( state = initialState, action = {type : null , pa
             return {
                 ...state,
                 detalle: {
-                    ...state.detalle,
                     ...action.payload
                 }
               
             }
+        case types.actualizarDetalle: 
+            return {
+                ...state,
+                detalle : {
+                    ...action.payload
+                }
+            }
         case types.limpiarDetalle : 
-            return {
-                ...initialState
-            }
-        case types.cargarEquipos:
-            return {
-                ...state,
-                equipos : [
-                    ...state.equipos,
-                    ...action.payload
-                ]
-            }
-        case types.cargarUsuarios:
-            return {
-                ...state,
-                usuarios : [
-                    ...state.usuarios,
-                    ...action.payload
-                ]
-            }   
+        return {
+            ...initialState
+        }
         default: return state;
     }
 }

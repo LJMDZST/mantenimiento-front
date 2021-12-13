@@ -7,6 +7,8 @@ export const startCargarHistorial = ()=>{
         const resp = await solicitarHistorial();
         if(resp.ok){
             dispatch( cargarHistorial(resp.data.data) );
+
+            
         } else {
             alert('Error al cargar historial de la BD');
         }

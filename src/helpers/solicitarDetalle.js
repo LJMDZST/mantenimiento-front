@@ -8,7 +8,7 @@ export const solicitarDetalle = async(idDet = null)=>{
         const data = await resp.json();
         
         return {
-            ok : resp.statusText,
+            ok : data.ok,
             status : resp.status,
             data : data.data
         } ;

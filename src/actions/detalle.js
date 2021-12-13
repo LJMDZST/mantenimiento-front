@@ -1,52 +1,47 @@
-import { solicitarDetalle } from "../helpers/solicitarDetalle";
-import { solicitarEquipos } from "../helpers/solicitarEquipos"
-import { solicitarUsuarios } from "../helpers/solicitarUsuarios";
-import { types } from "../Types/Types";
+import { solicitarDetalle } from '../helpers/solicitarDetalle';
+import { types } from '../Types/Types';
+import { FinalizarCargarDetalle, iniciarCargarDetalle } from './ui';
 
 
 export const startCargarDetalle = (idDet = null)=>{
     return async(dispatch)=>{
         try {
-            let resp = await solicitarEquipos();
+            dispatch( iniciarCargarDetalle() );
             
-            dispatch( cargarEquipos( resp.data ) );
+            const resp = await solicitarDetalle(idDet);
 
-            resp = await solicitarUsuarios();
-            dispatch( cargarUsuarios( resp.data ) );
-
-            resp = await solicitarDetalle(idDet);
-            dispatch( selecDetalle( resp.data[0] ) );
+            dispatch( selecDetalle( resp.data[0]) );
+            
+            setTimeout(() => {
+                
+                dispatch(FinalizarCargarDetalle(''));
+            }, 1000);
 
         } catch (error) {
             console.log(error);
-            alert('Error durante la carga de datos');
+            dispatch(FinalizarCargarDetalle('Error durante la carga de datos'));
         }
       
        
     }
 }
 
+export const actualizarDetalle = ( det = {} )=>({
+    type: types.actualizarDetalle,
+    payload: {
+        ...det
+    }
+})
+
+export const limpiarDetalle = ()=>({
+    type: types.limpiarDetalle
+})
+
+
 const selecDetalle = (det = {})=>({
     type: types.selecDetalle,
     payload : {
         ...det
     }
-})
+});
 
-
-const cargarEquipos = (equipos = [])=>({
-    type: types.cargarEquipos,
-    payload: [
-        ...equipos
-    ]
-   
-})
-
-const cargarUsuarios = ( usuarios = [])=>({
-    type: types.cargarUsuarios,
-    payload: [
-        ...usuarios
-    ]
-       
-  
-})

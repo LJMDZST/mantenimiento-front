@@ -5,13 +5,27 @@ export const types = {
     limpiarHistorial : '[Historial] Limpiar',
     
     selecDetalle : '[Detalle] Seleccionar',
-    cargarEquipos: '[Detalle] Cargar Equipos',
-    cargarUsuarios: '[Detalle] Cargar Usuarios',
+    actualizarDetalle : '[Detalle] Actualizar',
     limpiarDetalle : '[Detalle] Limpiar',
+    guardarCambios : '[Detalle] Guardar cambios',
 
-    guardarCambios : '[UI] Guardar Cambios',
-    clickEditar : '[UI] Click Editar',
-    clickCancelar: '[UI] Click Cancelar',
-    clickAgregar: '[UI] Click Agregar',
+    cargarEquipos: '[Equipos] Cargar Equipos',
+
+    cargarUsuarios: '[Usuarios] Cargar Usuarios',
+
+    cargarTecnicos: '[Tecnicos] Cargar Tecnicos',
+
+    cargarTareas: '[Tareas] Cargar Tareas',
+    limpiarTareas: '[Tareas] Limpiar Tareas',
+    agreagarTarea: '[Tareas] Agreagar Tarea',
+    editarTarea: '[Tareas] Editar Tarea',
+    guardarTareas : '[Tareas] Guardar Tareas',
+
+    cargarTipoTareas: '[Tipo Tareas] Cargar Tipo Tareas',
+
+    iniciarGuardarCambios : '[UI] Iniciar Guardar Cambios',
+    finalizarGuardarCambios : '[UI] Finalizar Guardar Cambios',
+    iniciarCarga : '[UI] Iniciar Carga',
+    finalizarCarga : '[UI] Finalizar Carga'
 
 }

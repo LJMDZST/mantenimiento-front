@@ -10,28 +10,27 @@ const initialState = {
 export const uiReducer = ( state = initialState, action)=>{
 
     switch (action.type) {
-        case types.clickAgregar:
+        case types.iniciarCarga:
             return {
                 ...state,
-                cargandoDetalle : action.payload.cargandoDetalle,
-                msgError : action.payload.msgError
+                cargandoDetalle: true
             }
-        case types.clickEditar:
+        case types.finalizarCarga:
             return {
                 ...state,
-                cargandoDetalle : action.payload.cargandoDetalle,
-                msgError : action.payload.msgError
+                cargandoDetalle: false,
+                msgError: action.payload
             }
-        case types.clickCancelar:
-            return {
-                ...initialState,
-                msgError : action.payload.msgError
-            }
-        case types.GuardarCambios:
+        case types.iniciarGuardarCambios:
         return {
             ...state,
-            guardandoDatos : action.payload.guardandoDatos,
-            msgError : action.payload.msgError,
+            guardandoDatos : true,
+        } 
+        case types.finalizarGuardarCambios:
+        return {
+            ...state,
+            guardandoDatos : false,
+            msgError: action.payload
         } 
             
         default:
