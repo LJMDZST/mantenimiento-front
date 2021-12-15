@@ -36,15 +36,17 @@ export const startCargarTareas = ()=>{
 
 export const startGuardarTareas = ()=>{
     return async(dispatch , getState)=>{
+
         dispatch( IniciarguardarCambios() );
 
         const {listado} = getState().tareasReducer;
 
         const resp = await guardarTareas( listado );
 
-        if(! resp.ok ){
-            alert(`${resp.status}: Error al guardar los cambios `);
-        }
+        (! resp.ok )
+            ? alert(`${resp.status}: Error al guardar los cambios `)
+            : alert('Datos guardados')
+        
 
         dispatch( finalizarGuardarCambios() );
     }

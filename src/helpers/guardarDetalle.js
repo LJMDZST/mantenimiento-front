@@ -1,4 +1,4 @@
-export const guardarTareas = async( tareas = [] )=>{
+export const guardarDetalle = async( detalle = {} )=>{
     
     try {
         const {REACT_APP_API_URL} = process.env;
@@ -8,7 +8,7 @@ export const guardarTareas = async( tareas = [] )=>{
                 'Content-Type': 'application/json'
               }, 
             body: JSON.stringify({
-                tareas : [...tareas]
+                detalle = {...detalle }
             })
          
         });

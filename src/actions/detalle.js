@@ -1,6 +1,6 @@
 import { solicitarDetalle } from '../helpers/solicitarDetalle';
 import { types } from '../Types/Types';
-import { FinalizarCargarDetalle, iniciarCargarDetalle } from './ui';
+import { FinalizarCargarDetalle, iniciarCargarDetalle, IniciarguardarCambios } from './ui';
 
 
 export const startCargarDetalle = (idDet = null)=>{
@@ -23,6 +23,24 @@ export const startCargarDetalle = (idDet = null)=>{
         }
       
        
+    }
+}
+
+export const startGuardarDetalle = ()=>{
+    return async ( dispatch,getState )=>{
+
+        try {
+
+            dispatch( IniciarguardarCambios() );
+
+            const { detalle } = getState().detalleReducer;
+
+            const resp = await guardar
+
+
+        } catch (error) {
+            
+        }
     }
 }
 
