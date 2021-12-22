@@ -35,7 +35,7 @@ export const startGuardarDetalle = ()=>{
 
             const { detalle } = getState().detalleReducer;
 
-            const resp = await guardar
+            
 
 
         } catch (error) {
